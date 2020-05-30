@@ -1,28 +1,32 @@
-import React from 'react'
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
-import Home from './components/screens/Home'
-import Category from './components/screens/Category'
-import Single from './components/screens/Single'
-import NotFound from './components/screens/NotFound'
+import React from "react";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { Provider } from "react-redux";
+import { store } from "./store";
+import Home from "./components/screens/Home";
+import Category from "./components/screens/Category";
+import Single from "./components/screens/Single";
+import NotFound from "./components/screens/NotFound";
 
-function App () {
+function App() {
   return (
-    <BrowserRouter>
-      <Route exact path='/'>
-        <Home />
-      </Route>
-      <Route path='/category'>
-        <Category />
-      </Route>
-      <Route />
-      <Route path='/single'>
-        <Single />
-      </Route>
-      <Route path='*'>
-        <NotFound />
-      </Route>
-    </BrowserRouter>
-  )
+    <Provider store={store}>
+      <BrowserRouter>
+        <Route exact path="/">
+          <Home />
+        </Route>
+        <Route path="/category">
+          <Category />
+        </Route>
+        <Route />
+        <Route path="/single">
+          <Single />
+        </Route>
+        <Route path="*">
+          <NotFound />
+        </Route>
+      </BrowserRouter>
+    </Provider>
+  );
 }
 
-export default App
+export default App;

@@ -1,46 +1,42 @@
-import React from 'react'
+import React from "react";
 // import Header from '../parts/Header'
 // import Footer from '../parts/Footer'
 // import Slider from '../parts/Slider'
 // import TrendingPosts from '../parts/TrendingPosts'
 // import FreshStories from '../parts/FreshStories'
 
-const PostItem = () => {
+const PostItem = (props) => {
   return (
     <>
-      <div className='news-post article-post2'>
-        <div className='row'>
-          <div className='col-md-6'>
-            <div className='image-holder'>
-              <img src='upload/blog/f1.jpg' alt='' />
+      <div className="news-post article-post2">
+        <div className="row">
+          <div className="col-md-6">
+            <div className="image-holder">
+              <img src="upload/blog/f1.jpg" alt="" />
             </div>
           </div>
-          <div className='col-md-6'>
-            <a className='text-link' href='#'>
-              Food
+          <div className="col-md-6">
+            <a className="text-link" href="#">
+              {props.post.category.categoryName}
             </a>
             <h2>
-              <a href='single-post.html'>Nullam malesuada eratut turpis.</a>
+              <a href="single-post.html">{props.post.title}</a>
             </h2>
-            <ul className='post-tags'>
+            <ul className="post-tags">
               <li>3 days ago</li>
               <li>
-                <a href='#'>3 comments</a>
+                <a href="#">3 comments</a>
               </li>
               <li>
-                by <a href='#'>John Smith</a>
+                by <a href="#">John Smith</a>
               </li>
             </ul>
-            <p>
-              Praesent dapibus, neque id cursus faucibus, tortor neque egestas
-              auguae, eu vulputate magna eros eu erat. Aliquam erat volutpat.
-              Nam dui mi, tincidunt ...
-            </p>
+            <p>{props.post.description}</p>
           </div>
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default PostItem
+export default PostItem;
